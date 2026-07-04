@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MadGenius | Bespoke Precision Auto Detailing</title>
+    <link rel="stylesheet" href="./styles.css?v=lux-components-1">
+  </head>
+  <body>
+    <div id="welcome-portal" aria-label="MadGenius cinematic welcome portal">
+      <video id="welcome-video-loop" class="welcome-video is-visible" playsinline autoplay loop preload="auto">
+        <source src="./videos/welcome-loop.mp4" type="video/mp4">
+        <source src="https://v1.pinimg.com/videos/iht/expMp4/6d/b9/86/6db9867d76b1ce7573edc837c011867d_720w.mp4" type="video/mp4">
+      </video>
+      <div class="welcome-shield"></div>
+      <div id="welcome-content" class="welcome-content">
+        <p class="welcome-kicker">MadGenius Private Atelier</p>
+        <h1>Welcome to MadGenius</h1>
+        <p>Operating at the intersection of clinical precision and automotive artistry. Enter the studio built for machines that deserve restraint.</p>
+        <button id="enter-portal-btn" class="welcome-enter" type="button">
+          <span>Initialize Experience</span>
+          <i aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <nav id="main-nav" class="site-nav nav-transparent">
+      <div class="nav-shell">
+        <a class="brand" href="#top" aria-label="MadGenius home">
+          <span class="brand-orb"></span>
+          <span class="brand-copy">MADGENIUS // LAB</span>
+        </a>
+        <div class="nav-links" aria-label="Primary navigation">
+          <a class="nav-link" href="#manifesto">Manifesto</a>
+          <a class="nav-link" href="#services">Protocol Suites</a>
+          <a class="nav-link" href="#standards">Metrology</a>
+          <a class="nav-link" href="#gallery">Portfolio</a>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-sound" id="soundToggle" type="button" aria-pressed="false">Sound Off</button>
+          <a class="nav-cta magnetic-cta" href="#booking">
+            <span>Request Allocation</span>
+            <i aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="top">
+      <section class="scroll-hero" aria-label="MadGenius scroll based animation">
+        <div class="hero-stage">
+          <canvas id="frameCanvas" width="3840" height="2160"></canvas>
+          <video id="sourceVideo" src="./assets/source.mp4" preload="auto" muted playsinline></video>
+          <audio id="frameAudio" src="./assets/source.mp4" preload="auto"></audio>
+          <div class="hero-vignette"></div>
+          <div class="scroll-copy-layer" aria-label="Studio services overview">
+            <article id="sc-1" class="scroll-panel story-card pos-right">
+              <p class="suite">Service 01</p>
+              <h2>Paint Correction Matrix</h2>
+              <p>Deep multi-stage abrasive restoration levels clear coat defects toward 0.1-micron optical precision under calibrated CRI lighting.</p>
+              <div class="story-meta"><span>0.1 MICRON TOLERANCE</span><span>FLAWLESS GLOSS</span></div>
+            </article>
+            <article id="sc-2" class="scroll-panel story-card pos-left">
+              <p class="suite">Service 02</p>
+              <h2>Ceramic Integration</h2>
+              <p>Nanotech hydrophobic coatings are selected around climate, storage, and driving cycles, then cured under infrared telemetry.</p>
+              <div class="story-meta"><span>INFRARED CURED</span><span>9H HARDNESS</span></div>
+            </article>
+            <article id="sc-3" class="scroll-panel story-card pos-right">
+              <p class="suite">Service 03</p>
+              <h2>Invisible Film Integration</h2>
+              <p>Wrapped-edge paint protection film is mapped to body lines and optical read so the shield disappears into the panel architecture.</p>
+              <div class="story-meta"><span>WRAPPED EDGE FINISH</span><span>OPTICAL CLARITY</span></div>
+            </article>
+            <article id="sc-4" class="scroll-panel story-card pos-left">
+              <p class="suite">Service 04</p>
+              <h2>Interior Preservation</h2>
+              <p>Leather, Alcantara, carbon, veneers, and touch surfaces receive low-moisture correction with finish-specific conservation protocols.</p>
+              <div class="story-meta"><span>MATERIAL-SPECIFIC CARE</span><span>LOW-MOISTURE PROCESS</span></div>
+            </article>
+            <article id="sc-5" class="scroll-panel story-card pos-right">
+              <p class="suite">Service 05</p>
+              <h2>Collection Stewardship</h2>
+              <p>Private recurring care keeps studio alumni inspection-ready through controlled washes, coating diagnostics, and seasonal storage prep.</p>
+              <div class="story-meta"><span>PRIVATE RECURRING CARE</span><span>COLLECTION READY</span></div>
+            </article>
+            <article id="sc-6" class="scroll-panel story-card pos-left about-panel">
+              <p class="suite">About MadGenius</p>
+              <h2>A closed-door studio for vehicles that deserve patience.</h2>
+              <p>We combine inspection discipline, refined finishing, and measured protection so every commission leaves calmer, sharper, and preserved.</p>
+              <div class="story-meta"><span>CLINICAL PRECISION</span><span>AUTOMOTIVE ARTISTRY</span></div>
+            </article>
+          </div>
+        </div>
+        <div id="scrollSpace" class="hero-scroll-space"></div>
+      </section>
+
+      <section class="section manifesto" id="manifesto">
+        <div class="container luxury-split">
+          <div class="copy-block reveal">
+            <p class="eyebrow">Private Studio Philosophy</p>
+            <h2>Preservation for assets that cannot be replaced.</h2>
+            <p>MadGenius operates as a closed-door finishing atelier for collector-grade vehicles. Each commission begins with controlled inspection, paint depth mapping, gloss measurement, and a surface risk profile before a machine ever touches the clear coat.</p>
+            <p>The result is not a cosmetic service. It is a calibrated preservation program built around restraint, material intelligence, and the final one percent of optical calm.</p>
+            <div class="signature-row" aria-label="Studio indicators">
+              <span><strong>01</strong> private intake</span>
+              <span><strong>12</strong> stage inspection</span>
+              <span><strong>96h</strong> cure protocol</span>
+            </div>
+          </div>
+          <div class="atelier-panel reveal tracking-card" aria-label="Luxury studio process visual">
+            <div class="atelier-frame">
+              <span>Surface audit</span>
+              <strong>0.3 micron</strong>
+              <em>correction tolerance</em>
+            </div>
+            <div class="atelier-line"></div>
+            <p>Every finish is treated as provenance-bearing material.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section standards" id="standards">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Controlled Conditions</p>
+            <h2>The studio behaves like an instrument.</h2>
+            <p>Light, temperature, chemistry, and airborne matter are controlled so the work can be measured, repeated, and trusted.</p>
+          </div>
+          <div class="standard-grid premium-grid">
+            <article class="glass-panel reveal tracking-card">
+              <span class="icon">22C</span>
+              <h3>Stable Climate Envelope</h3>
+              <p>Temperature and humidity are held inside a narrow operating band for predictable correction, coating flash, and film behavior.</p>
+            </article>
+            <article class="glass-panel reveal tracking-card">
+              <span class="icon">CRI</span>
+              <h3>Color-True Illumination</h3>
+              <p>Layered high-CRI light exposes holograms, sanding texture, trailing marks, and tone shifts before delivery.</p>
+            </article>
+            <article class="glass-panel reveal tracking-card">
+              <span class="icon">UM</span>
+              <h3>Measured Material Removal</h3>
+              <p>Paint depth, gloss, and defect density are logged through the correction sequence to protect long-term value.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services" id="services">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Atelier Programs</p>
+            <h2>Commissioned around the vehicle, not a menu.</h2>
+            <p>Each program is scoped after inspection and built as a layered preservation plan.</p>
+          </div>
+          <div class="service-grid">
+            <article class="glass-panel service reveal tracking-card">
+              <p class="suite">Finish / 01</p>
+              <h3>Concours Correction</h3>
+              <p>Multi-stage correction for high-value paint systems where gloss, edge safety, and original material preservation carry equal weight.</p>
+              <a class="card-link" href="#booking">Request Allocation</a>
+            </article>
+            <article class="glass-panel service featured reveal tracking-card">
+              <p class="suite">Surface / 02</p>
+              <h3>Ceramic Architecture</h3>
+              <p>Layered coating systems selected by surface type, ownership pattern, climate exposure, and desired maintenance profile.</p>
+              <a class="card-link filled" href="#booking">Request Allocation</a>
+            </article>
+            <article class="glass-panel service reveal tracking-card">
+              <p class="suite">Defense / 03</p>
+              <h3>Invisible Film Integration</h3>
+              <p>Pattern planning, wrapped edges, and high-clarity film placement designed to disappear against the body line.</p>
+              <a class="card-link" href="#booking">Request Allocation</a>
+            </article>
+            <article class="glass-panel service reveal tracking-card">
+              <p class="suite">Cabin / 04</p>
+              <h3>Interior Conservation</h3>
+              <p>Low-moisture treatment for leather, Alcantara, veneers, carbon, and high-touch surfaces with finish-specific protection.</p>
+              <a class="card-link" href="#booking">Request Allocation</a>
+            </article>
+            <article class="glass-panel service wide reveal tracking-card">
+              <p class="suite">Continuity / 05</p>
+              <h3>Collection Stewardship</h3>
+              <p>A private recurring care program for studio alumni: controlled washes, coating health checks, film inspection, and seasonal storage preparation.</p>
+              <a class="card-link" href="#booking">Request Allocation</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gallery" id="gallery">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Measured Outcome</p>
+            <h2>The difference should feel quiet, not loud.</h2>
+            <p>Move the divider to compare reduced texture, restored depth, and a cleaner optical read across the surface.</p>
+          </div>
+          <div class="delta reveal tracking-card" id="ba-slider">
+            <div class="paint before"></div>
+            <div class="paint after" id="ba-overlay"></div>
+            <div class="delta-handle" aria-hidden="true"><span>&lt;&gt;</span></div>
+          </div>
+          <div class="delta-labels">
+            <span>Pre-Correction / Baseline Degradation</span>
+            <span>Post-Correction / Optical Clarity Achieved</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section booking" id="booking">
+        <div class="container">
+          <form class="intake glass-panel reveal tracking-card">
+            <div class="section-heading compact">
+              <p class="eyebrow">Private Intake</p>
+              <h2>Request a studio allocation.</h2>
+              <p>Availability is intentionally limited. Submit the asset profile and the studio will respond with an inspection window.</p>
+            </div>
+            <div class="form-grid">
+              <label>Client Name<input type="text" placeholder="John Doe"></label>
+              <label>Primary Contact<input type="email" placeholder="john@example.com"></label>
+              <label>Asset Make, Model & Year<input type="text" placeholder="2023 Porsche 911 GT3 RS"></label>
+              <label>Target Protocol Suite<select><option>Concours Correction</option><option>Ceramic Architecture</option><option>Invisible Film Integration</option><option>Bespoke Commission / Multi-Suite</option></select></label>
+            </div>
+            <label>Objective Data / Goals<textarea placeholder="Current paint condition, preservation goals, timeline requirements..."></textarea></label>
+            <button class="btn primary" type="button">Transmit Request</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="#top"><span class="brand-mark">M</span><span>MadGenius</span></a>
+          <p>Operating at the intersection of automotive obsession and clinical precision. Industrial luxury for high-value assets.</p>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+          <a href="#">LinkedIn</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+      <div class="container status-row">
+        <span>2024 MadGenius Bespoke. Precision Engineered Protection.</span>
+        <span><i></i> Studio Operational</span>
+      </div>
+    </footer>
+
+    <script src="./app.js?v=lux-components-1" defer></script>
+  </body>
+</html>
