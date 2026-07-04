@@ -41,6 +41,8 @@ let lastFallbackSeekAt = 0;
 let lastScrollY = window.scrollY;
 let lastScrollAt = performance.now();
 let isPortalEntering = false;
+let welcomeNeedsGestureForAudio = false;
+let welcomeUnlockBound = false;
 
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
@@ -129,6 +131,7 @@ function setupWelcomePortal() {
   if (!welcomePortal) return;
 
   document.body.classList.add("portal-active");
+  bindWelcomeAudioUnlock();
 
   if (welcomeLoop) {
     welcomeLoop.defaultMuted = false;
@@ -137,12 +140,12 @@ function setupWelcomePortal() {
 
     welcomeLoop.addEventListener("loadedmetadata", () => {
       welcomeLoop.currentTime = 0;
-      welcomeLoop.play().catch(() => {});
+      attemptWelcomePlayback();
     }, { once: true });
 
     try {
       welcomeLoop.currentTime = 0;
-      welcomeLoop.play().catch(() => {});
+      attemptWelcomePlayback();
     } catch {
       // Some browsers delay playback until media is ready.
     }
@@ -155,6 +158,7 @@ function setupWelcomePortal() {
 function enterExperience() {
   if (isPortalEntering) return;
   isPortalEntering = true;
+  cleanupWelcomeAudioUnlock();
 
   welcomeContent?.classList.add("is-hidden");
 
@@ -172,6 +176,52 @@ function enterExperience() {
       welcomeLoop?.pause();
     }, 720);
   }, 420);
+}
+
+async function attemptWelcomePlayback() {
+  if (!welcomeLoop) return;
+
+  try {
+    welcomeLoop.muted = false;
+    welcomeLoop.volume = 1;
+    await welcomeLoop.play();
+    welcomeNeedsGestureForAudio = false;
+  } catch {
+    // Fall back to muted autoplay when the browser blocks sound-first playback.
+    welcomeNeedsGestureForAudio = true;
+    welcomeLoop.muted = true;
+    welcomeLoop.volume = 0;
+    welcomeLoop.play().catch(() => {});
+  }
+}
+
+function bindWelcomeAudioUnlock() {
+  if (welcomeUnlockBound) return;
+
+  window.addEventListener("pointerdown", unlockWelcomeAudio, { passive: true });
+  window.addEventListener("keydown", unlockWelcomeAudio, { passive: true });
+  welcomeUnlockBound = true;
+}
+
+function cleanupWelcomeAudioUnlock() {
+  if (!welcomeUnlockBound) return;
+
+  window.removeEventListener("pointerdown", unlockWelcomeAudio);
+  window.removeEventListener("keydown", unlockWelcomeAudio);
+  welcomeUnlockBound = false;
+}
+
+async function unlockWelcomeAudio() {
+  if (!welcomeLoop || !welcomeNeedsGestureForAudio || isPortalEntering) return;
+
+  try {
+    welcomeLoop.muted = false;
+    welcomeLoop.volume = 1;
+    await welcomeLoop.play();
+    welcomeNeedsGestureForAudio = false;
+  } catch {
+    // If the browser still refuses, keep the loop running silently.
+  }
 }
 
 function markScrollActivity() {
@@ -459,6 +509,10 @@ setupStoryCardTilt();
 updateNavState();
 
 window.addEventListener("resize", resizeScrollSpace, { passive: true });
+window.addEventListener("pageshow", () => {
+  if (!welcomePortal || !welcomeLoop || isPortalEntering) return;
+  attemptWelcomePlayback();
+});
 window.addEventListener("scroll", () => {
   updateTargetFrame();
   updateNavState();
