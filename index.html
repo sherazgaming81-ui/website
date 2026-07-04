@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="welcome-portal" aria-label="MadGenius cinematic welcome portal">
-      <video id="welcome-video-loop" class="welcome-video is-visible" playsinline autoplay loop preload="auto">
+      <video id="welcome-video-loop" class="welcome-video is-visible" playsinline autoplay muted loop preload="auto">
         <source src="./assets/welcome-loop.mp4" type="video/mp4">
       </video>
       <div class="welcome-shield"></div>
@@ -47,52 +47,45 @@
     </nav>
 
     <main id="top">
-      <section class="scroll-hero" aria-label="MadGenius scroll based animation">
-        <div class="hero-stage">
-          <canvas id="frameCanvas" width="3840" height="2160"></canvas>
-          <video id="sourceVideo" src="./assets/source.mp4" preload="auto" muted playsinline></video>
-          <audio id="frameAudio" src="./assets/source.mp4" preload="auto"></audio>
-          <div class="hero-vignette"></div>
-          <div class="scroll-copy-layer" aria-label="Studio services overview">
-            <article id="sc-1" class="scroll-panel story-card pos-right">
-              <p class="suite">Service 01</p>
-              <h2>Paint Correction Matrix</h2>
-              <p>Deep multi-stage abrasive restoration levels clear coat defects toward 0.1-micron optical precision under calibrated CRI lighting.</p>
-              <div class="story-meta"><span>0.1 MICRON TOLERANCE</span><span>FLAWLESS GLOSS</span></div>
-            </article>
-            <article id="sc-2" class="scroll-panel story-card pos-left">
-              <p class="suite">Service 02</p>
-              <h2>Ceramic Integration</h2>
-              <p>Nanotech hydrophobic coatings are selected around climate, storage, and driving cycles, then cured under infrared telemetry.</p>
-              <div class="story-meta"><span>INFRARED CURED</span><span>9H HARDNESS</span></div>
-            </article>
-            <article id="sc-3" class="scroll-panel story-card pos-right">
-              <p class="suite">Service 03</p>
-              <h2>Invisible Film Integration</h2>
-              <p>Wrapped-edge paint protection film is mapped to body lines and optical read so the shield disappears into the panel architecture.</p>
-              <div class="story-meta"><span>WRAPPED EDGE FINISH</span><span>OPTICAL CLARITY</span></div>
-            </article>
-            <article id="sc-4" class="scroll-panel story-card pos-left">
-              <p class="suite">Service 04</p>
-              <h2>Interior Preservation</h2>
-              <p>Leather, Alcantara, carbon, veneers, and touch surfaces receive low-moisture correction with finish-specific conservation protocols.</p>
-              <div class="story-meta"><span>MATERIAL-SPECIFIC CARE</span><span>LOW-MOISTURE PROCESS</span></div>
-            </article>
-            <article id="sc-5" class="scroll-panel story-card pos-right">
-              <p class="suite">Service 05</p>
-              <h2>Collection Stewardship</h2>
-              <p>Private recurring care keeps studio alumni inspection-ready through controlled washes, coating diagnostics, and seasonal storage prep.</p>
-              <div class="story-meta"><span>PRIVATE RECURRING CARE</span><span>COLLECTION READY</span></div>
-            </article>
-            <article id="sc-6" class="scroll-panel story-card pos-left about-panel">
-              <p class="suite">About MadGenius</p>
-              <h2>A closed-door studio for vehicles that deserve patience.</h2>
-              <p>We combine inspection discipline, refined finishing, and measured protection so every commission leaves calmer, sharper, and preserved.</p>
-              <div class="story-meta"><span>CLINICAL PRECISION</span><span>AUTOMOTIVE ARTISTRY</span></div>
-            </article>
+      <section class="film-hero" aria-label="MadGenius studio introduction">
+        <div class="film-hero-media" id="filmHero">
+          <video id="heroStudioVideo" class="film-hero-video" src="./assets/hero-pin.mp4" muted loop playsinline preload="auto"></video>
+          <div class="film-hero-vignette"></div>
+          <div class="film-hero-beam"></div>
+          <div class="film-hero-spotlight"></div>
+          <div class="film-hero-grain"></div>
+        </div>
+        <div class="container film-hero-shell">
+          <div class="film-hero-copy reveal">
+            <p class="eyebrow">MadGenius Private Atelier</p>
+            <h1>Studio-grade gloss. Quietly unforgettable.</h1>
+            <p class="hero-subcopy">Commissioned detailing for collector vehicles, with measured correction, coating discipline, and finish clarity designed to feel effortless.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#booking">Request Allocation</a>
+              <a class="btn ghost" href="#services">Explore Protocols</a>
+            </div>
+          </div>
+          <div class="film-hero-metrics reveal" aria-label="Studio performance metrics">
+            <div class="film-metric">
+              <span>Correction tolerance</span>
+              <strong>0.3 micron</strong>
+            </div>
+            <div class="film-metric">
+              <span>Lighting discipline</span>
+              <strong>High-CRI inspection</strong>
+            </div>
+            <div class="film-metric">
+              <span>Client model</span>
+              <strong>Private allocation only</strong>
+            </div>
           </div>
         </div>
-        <div id="scrollSpace" class="hero-scroll-space"></div>
+        <div class="film-hero-ribbon" aria-label="Core studio services">
+          <span>Paint Correction</span>
+          <span>Ceramic Protection</span>
+          <span>Paint Protection Film</span>
+          <span>Interior Preservation</span>
+        </div>
       </section>
 
       <section class="section manifesto" id="manifesto">
@@ -256,3 +249,4 @@
     <script src="./app.js?v=lux-components-1" defer></script>
   </body>
 </html>
+
