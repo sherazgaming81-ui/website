@@ -18,6 +18,7 @@ const scrollPanels = Array.from(document.querySelectorAll(".story-card"));
 const welcomePortal = document.getElementById("welcome-portal");
 const welcomeLoop = document.getElementById("welcome-video-loop");
 const welcomeContent = document.getElementById("welcome-content");
+const welcomeAudioHint = document.getElementById("welcome-audio-hint");
 const enterPortalButton = document.getElementById("enter-portal-btn");
 
 let duration = 24;
@@ -159,6 +160,7 @@ function enterExperience() {
   if (isPortalEntering) return;
   isPortalEntering = true;
   cleanupWelcomeAudioUnlock();
+  hideWelcomeAudioHint();
 
   welcomeContent?.classList.add("is-hidden");
 
@@ -186,11 +188,13 @@ async function attemptWelcomePlayback() {
     welcomeLoop.volume = 1;
     await welcomeLoop.play();
     welcomeNeedsGestureForAudio = false;
+    hideWelcomeAudioHint();
   } catch {
     // Fall back to muted autoplay when the browser blocks sound-first playback.
     welcomeNeedsGestureForAudio = true;
     welcomeLoop.muted = true;
     welcomeLoop.volume = 0;
+    showWelcomeAudioHint();
     welcomeLoop.play().catch(() => {});
   }
 }
@@ -219,9 +223,18 @@ async function unlockWelcomeAudio() {
     welcomeLoop.volume = 1;
     await welcomeLoop.play();
     welcomeNeedsGestureForAudio = false;
+    hideWelcomeAudioHint();
   } catch {
     // If the browser still refuses, keep the loop running silently.
   }
+}
+
+function showWelcomeAudioHint() {
+  welcomeAudioHint?.classList.add("is-visible");
+}
+
+function hideWelcomeAudioHint() {
+  welcomeAudioHint?.classList.remove("is-visible");
 }
 
 function markScrollActivity() {
