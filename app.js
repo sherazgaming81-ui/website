@@ -41,7 +41,6 @@ let lastFallbackSeekAt = 0;
 let lastScrollY = window.scrollY;
 let lastScrollAt = performance.now();
 let isPortalEntering = false;
-let welcomeLoopRetryBound = false;
 
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
@@ -147,19 +146,6 @@ function setupWelcomePortal() {
     } catch {
       // Some browsers delay playback until media is ready.
     }
-
-    if (!welcomeLoopRetryBound) {
-      const retryPlayback = () => {
-        welcomeLoop.currentTime = 0;
-        welcomeLoop.muted = false;
-        welcomeLoop.volume = 1;
-        welcomeLoop.play().catch(() => {});
-      };
-
-      window.addEventListener("pointerdown", retryPlayback, { passive: true });
-      window.addEventListener("keydown", retryPlayback, { passive: true });
-      welcomeLoopRetryBound = true;
-    }
   }
 
   window.enterExperience = enterExperience;
@@ -173,9 +159,8 @@ function enterExperience() {
   welcomeContent?.classList.add("is-hidden");
 
   if (welcomeLoop) {
-    welcomeLoop.muted = false;
-    welcomeLoop.volume = 1;
-    welcomeLoop.play().catch(() => {});
+    welcomeLoop.muted = true;
+    welcomeLoop.volume = 0;
   }
 
   window.setTimeout(() => {
